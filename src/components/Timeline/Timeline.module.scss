@@ -1,0 +1,203 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.timeline {
+    @include section-padding;
+    background: $color-bg-primary;
+    overflow: hidden;
+
+    &__container {
+        @include container;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: $spacing-4;
+
+        span {
+            @include text-gradient;
+        }
+    }
+
+    &__subtitle {
+        text-align: center;
+        color: $color-text-secondary;
+        max-width: 600px;
+        margin: 0 auto $spacing-16;
+    }
+
+    &__wrapper {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: $spacing-4 0;
+    }
+
+    &__line {
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba($color-accent, 0.2);
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 1.5s ease-out;
+
+        @include respond-to(md) {
+            left: 50%;
+            transform: translateX(-50%) scaleY(0);
+        }
+
+        &--visible {
+            transform: scaleY(1);
+
+            @include respond-to(md) {
+                transform: translateX(-50%) scaleY(1);
+            }
+        }
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: $spacing-12;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all $transition-slow;
+    padding-left: 50px;
+
+    &--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @include respond-to(md) {
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        &--left {
+            justify-content: flex-start;
+
+            .timeline-item__content {
+                margin-right: 50px;
+                text-align: right;
+                margin-left: 0;
+            }
+
+            .timeline-item__highlights li {
+                justify-content: flex-end;
+            }
+        }
+
+        &--right {
+            justify-content: flex-end;
+
+            .timeline-item__content {
+                margin-left: 50px;
+            }
+        }
+    }
+
+    &__content {
+        @include card-base;
+        padding: $spacing-6;
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+
+        &:hover {
+            box-shadow: $shadow-glow;
+            border-color: rgba($color-accent, 0.3);
+        }
+    }
+
+    &__header {
+        margin-bottom: $spacing-4;
+    }
+
+    &__role {
+        font-size: $font-size-lg;
+        color: $color-accent;
+        margin-bottom: $spacing-1;
+    }
+
+    &__company {
+        display: block;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        color: $color-text-primary;
+        margin-bottom: $spacing-1;
+    }
+
+    &__period {
+        display: inline-block;
+        font-size: $font-size-xs;
+        color: $color-bg-primary;
+        background: $color-accent;
+        padding: 2px 8px;
+        border-radius: $radius-full;
+        font-weight: $font-weight-medium;
+    }
+
+    &__description {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-4;
+    }
+
+    &__highlights {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: $spacing-2;
+            font-size: $font-size-xs;
+            color: $color-text-muted;
+
+            &::before {
+                content: '▹';
+                color: $color-accent;
+            }
+        }
+    }
+
+    &__dot {
+        position: absolute;
+        left: 11px;
+        top: 24px;
+        width: 20px;
+        height: 20px;
+        background: $color-bg-primary;
+        border: 2px solid $color-accent;
+        border-radius: 50%;
+        z-index: 2;
+        @include flex-center;
+
+        @include respond-to(md) {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__dot-inner {
+        width: 8px;
+        height: 8px;
+        background: $color-accent;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity $transition-base;
+
+        .timeline-item:hover & {
+            opacity: 1;
+            box-shadow: 0 0 10px $color-accent;
+        }
+    }
+}

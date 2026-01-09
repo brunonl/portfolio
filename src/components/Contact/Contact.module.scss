@@ -1,0 +1,93 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.contact {
+    @include section-padding;
+    background: $color-bg-primary;
+    border-top: 1px solid $color-border;
+    padding-bottom: $spacing-8;
+
+    &__container {
+        @include container;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: $spacing-12;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: $spacing-8;
+        margin-bottom: $spacing-16;
+
+        @include respond-to(lg) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: $spacing-6;
+        border-radius: $radius-xl;
+        transition: all $transition-base;
+
+        &:hover {
+            background: rgba($color-bg-card, 0.5);
+            transform: translateY(-5px);
+
+            .contact__icon {
+                background: rgba($color-accent, 0.2);
+                color: $color-accent;
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba($color-accent, 0.3);
+            }
+
+            .contact__value {
+                color: $color-accent;
+            }
+        }
+    }
+
+    &__icon {
+        @include flex-center;
+        width: 60px;
+        height: 60px;
+        background: rgba($color-bg-card, 1);
+        border: 1px solid $color-border;
+        border-radius: 50%;
+        margin-bottom: $spacing-4;
+        color: $color-text-secondary;
+        transition: all $transition-base;
+    }
+
+    &__label {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-2;
+        font-weight: $font-weight-medium;
+    }
+
+    &__value {
+        font-size: $font-size-base;
+        color: $color-text-primary;
+        font-weight: $font-weight-medium;
+        transition: color $transition-fast;
+        word-break: break-all;
+    }
+
+    &__copyright {
+        text-align: center;
+        padding-top: $spacing-8;
+        border-top: 1px solid $color-border;
+
+        p {
+            font-size: $font-size-xs;
+            color: $color-text-muted;
+        }
+    }
+}

@@ -1,0 +1,151 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-index-header;
+    padding: $spacing-4 0;
+    transition: all $transition-base;
+
+    &--scrolled {
+        @include glass;
+        border-bottom: 1px solid $color-border;
+        padding: $spacing-3 0;
+    }
+
+    &__container {
+        @include container;
+        @include flex-between;
+    }
+
+    &__logo {
+        font-family: $font-family-heading;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        text-decoration: none;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: $color-text-primary;
+        }
+    }
+
+    &__logoAccent {
+        @include text-gradient;
+    }
+
+    &__logoDot {
+        color: $color-accent;
+    }
+
+    &__nav {
+        @include respond-to(md) {
+            display: block;
+        }
+
+        display: none;
+
+        &--open {
+            display: flex;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $color-bg-primary;
+            padding: $spacing-8;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            animation: fadeInUp 0.3s ease;
+        }
+    }
+
+    &__navList {
+        display: flex;
+        gap: $spacing-8;
+        list-style: none;
+
+        .header__nav--open & {
+            flex-direction: column;
+            align-items: center;
+            gap: $spacing-6;
+        }
+    }
+
+    &__navItem {
+        // BEM element
+    }
+
+    &__navLink {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $color-text-secondary;
+        text-decoration: none;
+        transition: color $transition-fast;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $color-accent;
+            transition: width $transition-base;
+        }
+
+        &:hover {
+            color: $color-accent;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        .header__nav--open & {
+            font-size: $font-size-lg;
+        }
+    }
+
+    &__menuBtn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: $spacing-2;
+
+        @include respond-to(md) {
+            display: none;
+        }
+
+        span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: $color-text-primary;
+            transition: all $transition-base;
+        }
+
+        &--open {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    }
+}
