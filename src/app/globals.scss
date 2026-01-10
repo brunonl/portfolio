@@ -1,6 +1,7 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
 @use "../styles/animations";
+@use "../styles/main";
 
 // ============================================
 // Global Styles - Bruno Meireles Portfolio
@@ -21,9 +22,11 @@
     --color-bg-secondary: #{$color-bg-secondary};
     --color-bg-card: #{$color-bg-card};
     --color-accent: #{$color-accent};
-    --color-accent-blue: #{$color-accent-blue};
+    --color-accent-secondary: #{$color-accent-secondary};
     --color-text-primary: #{$color-text-primary};
     --color-text-secondary: #{$color-text-secondary};
+    --font-mono: #{$font-family-mono};
+    --font-primary: #{$font-family-primary};
 }
 
 // HTML & Body
@@ -37,7 +40,7 @@ html {
 }
 
 body {
-    font-family: $font-family-primary;
+    font-family: var(--font-primary), $font-family-primary;
     font-size: $font-size-base;
     line-height: $line-height-normal;
     color: $color-text-primary;
@@ -72,7 +75,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-family-heading;
+    font-family: var(--font-mono), $font-family-mono;
     font-weight: $font-weight-bold;
     line-height: $line-height-tight;
     color: $color-text-primary;

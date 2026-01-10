@@ -1,0 +1,176 @@
+// ============================================
+// Component Styles - Projects
+// ============================================
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.projects {
+    @include section-padding;
+    background: $color-bg-secondary;
+
+    &__container {
+        @include container;
+    }
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-12;
+    }
+
+    &__title {
+        font-family: $font-family-mono;
+        font-size: $font-size-3xl;
+        margin-bottom: $spacing-4;
+
+        @include respond-to(md) {
+            font-size: $font-size-4xl;
+        }
+
+        span {
+            @include text-gradient;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-family-primary;
+        color: $color-text-secondary;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $spacing-6;
+
+        @include respond-to(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+.project-card {
+    position: relative;
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
+    transition: all $transition-base;
+    opacity: 0;
+    transform: translateY(30px);
+
+    &--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &:hover {
+        border-color: $color-accent;
+        transform: translateY(-4px);
+
+        .project-card__overlay {
+            opacity: 1;
+        }
+
+        .project-card__image {
+            transform: scale(1.05);
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba($color-bg-primary, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity $transition-base;
+    }
+
+    &__details-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2;
+        padding: $spacing-3 $spacing-6;
+        font-family: $font-family-mono;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        background: $color-accent;
+        color: $color-bg-primary;
+        border: 1px solid $color-accent;
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: all $transition-base;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:hover {
+            background: transparent;
+            color: $color-accent;
+        }
+    }
+
+    &__content {
+        padding: $spacing-5;
+    }
+
+    &__category {
+        display: inline-block;
+        font-family: $font-family-mono;
+        font-size: $font-size-xs;
+        color: $color-accent;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: $spacing-2;
+    }
+
+    &__title {
+        font-family: $font-family-mono;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacing-2;
+    }
+
+    &__description {
+        font-family: $font-family-primary;
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-4;
+    }
+
+    &__stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-2;
+    }
+
+    &__tech {
+        font-family: $font-family-mono;
+        font-size: $font-size-xs;
+        color: $color-text-muted;
+        padding: $spacing-1 $spacing-2;
+        background: rgba($color-accent, 0.1);
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+    }
+}

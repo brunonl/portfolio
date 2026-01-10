@@ -1,8 +1,5 @@
 'use client';
 
-import imageProfile from '../../../public/images/profile.jpg';
-import Image from 'next/image';
-import styles from './About.module.scss';
 import { useEffect, useRef } from 'react';
 
 export default function About() {
@@ -12,7 +9,7 @@ export default function About() {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add(styles['about--visible']);
+                    entry.target.classList.add('about--visible');
                 }
             },
             { threshold: 0.2 }
@@ -24,66 +21,48 @@ export default function About() {
     }, []);
 
     return (
-        <section ref={sectionRef} className={styles.about} id="about">
-            <div className={styles.about__container}>
-                <div className={styles.about__grid}>
-                    <div className={styles.about__imageWrapper}>
-                        <div className={styles.about__imageFrame}>
-                            <Image
-                                src={imageProfile}
-                                alt="Bruno Meireles"
-                                width={400}
-                                height={400}
-                                className={styles.about__image}
-                            />
-                        </div>
-                        <div className={styles.about__badge}>
-                            <span>🇧🇷</span> Brasileiro
-                        </div>
-                        <div className={styles.about__badge} style={{ top: 'auto', bottom: '20px', left: '-20px', right: 'auto' }}>
-                            <span>📍</span> Nova Lima - MG
-                        </div>
-                    </div>
+        <section ref={sectionRef} className="about" id="about">
+            <div className="about__container">
+                <div className="about__header">
+                    <h2 className="about__title">
+                        Sobre <span>Mim</span>
+                    </h2>
+                </div>
 
-                    <div className={styles.about__content}>
-                        <h2 className={styles.about__title}>
-                            Sobre <span>Mim</span>
-                        </h2>
+                <div className="about__content">
+                    <p className="about__text">
+                        Senior Frontend Engineer com mais de 10 anos de experiência criando
+                        experiências digitais de impacto. Formado em Ciência da Computação
+                        (UniBH, 2017) com experiência internacional e inglês avançado (B2).
+                    </p>
 
-                        <p className={styles.about__text}>
-                            Senior Frontend Engineer com mais de 10 anos de experiência e formação em Ciência da Computação.
-                            Movido por desafios técnicos e inovação, atuei em projetos estratégicos para empresas como Cemig,
-                            Caixa Econômica Federal e Portal O Tempo.
-                        </p>
+                    <p className="about__text">
+                        Atuei em projetos estratégicos para empresas como Cemig, Caixa Econômica
+                        Federal e Portal O Tempo (+25mi views/mês). Foco em React, Next.js,
+                        TypeScript e liderança técnica de equipes.
+                    </p>
 
-                        <p className={styles.about__text}>
-                            Experiência internacional com inglês avançado (B2) e intercâmbio em Malta (UE). Especialista em
-                            liderança técnica, React, Next.js e performance web.
-                        </p>
-
-                        <div className={styles.about__highlights}>
-                            <div className={styles.highlight}>
-                                <span className={styles.highlight__icon}>📚</span>
-                                <div>
-                                    <h4>Publicação Científica</h4>
-                                    <p>Engenharia Semiótica Aplicada em Simulador de Casos Clínicos (CBIS 2016)</p>
-                                </div>
-                            </div>
-
-                            <div className={styles.highlight}>
-                                <span className={styles.highlight__icon}>🎓</span>
-                                <div>
-                                    <h4>Formação Acadêmica</h4>
-                                    <p>Ciência da Computação (UniBH, 2017)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="/cv_bruno_meireles.pdf" download className={styles.about__btn}>
-                            Download CV
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div className="about__actions">
+                        <a
+                            href="/cv_bruno_meireles.pdf"
+                            download
+                            className="about__btn about__btn--primary"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                             </svg>
+                            Download CV
+                        </a>
+                        <a
+                            href="https://linkedin.com/in/brunonldev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="about__btn about__btn--secondary"
+                        >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
                         </a>
                     </div>
                 </div>

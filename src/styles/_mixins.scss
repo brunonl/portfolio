@@ -105,7 +105,7 @@
 
 // Text styles
 @mixin text-gradient {
-    background: linear-gradient(135deg, $color-accent, $color-accent-blue);
+    background: linear-gradient(135deg, $color-accent, $color-accent-secondary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -130,7 +130,7 @@
 
 @mixin button-primary {
     @include button-base;
-    background: linear-gradient(135deg, $color-accent, $color-accent-blue);
+    background: linear-gradient(135deg, $color-accent, $color-accent-secondary);
     color: $color-bg-primary;
 
     &:hover {

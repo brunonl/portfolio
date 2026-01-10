@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.scss";
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-mono',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: '--font-space',
+  variable: '--font-primary',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Bruno Meireles | Senior Software Engineer",
-  description: "Portfólio de Bruno Meireles, Senior Software Engineer especializado em Frontend com React, Next.js e TypeScript.",
+  title: "Bruno Meireles | Senior Frontend Engineer",
+  description: "Portfólio de Bruno Meireles, Senior Frontend Engineer com mais de 10 anos de experiência em React, Next.js e TypeScript.",
   keywords: ["Frontend", "Software Engineer", "React", "Next.js", "TypeScript", "Developer", "Portfolio"],
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="pt-BR" className={`${jetbrainsMono.variable} ${outfit.variable}`}>
       <body>{children}</body>
     </html>
   );

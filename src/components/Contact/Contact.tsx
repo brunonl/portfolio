@@ -1,62 +1,87 @@
 'use client';
 
-import styles from './Contact.module.scss';
+import { useState } from 'react';
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // For now, open email client with pre-filled data
+        const subject = encodeURIComponent(`Contato do Portfólio - ${formData.name}`);
+        const body = encodeURIComponent(`Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`);
+        window.location.href = `mailto:brunik56@hotmail.com?subject=${subject}&body=${body}`;
+    };
+
     return (
-        <footer className={styles.contact} id="contact">
-            <div className={styles.contact__container}>
-                <h2 className={styles.contact__title}>Contatos</h2>
+        <section className="contact" id="contact">
+            <div className="contact__container">
+                <h2 className="contact__title">
+                    Vamos <span>Conversar</span>
+                </h2>
+                <p className="contact__subtitle">
+                    Tem um projeto em mente? Entre em contato e vamos transformar ideias em realidade.
+                </p>
 
-                <div className={styles.contact__grid}>
-                    <a href="mailto:bruno.meirelesnl@gmail.com" className={styles.contact__card}>
-                        <div className={styles.contact__icon}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
-                            </svg>
-                        </div>
-                        <span className={styles.contact__label}>E-mail</span>
-                        <span className={styles.contact__value}>bruno.meirelesnl@gmail.com</span>
+                <form className="contact__form" onSubmit={handleSubmit}>
+                    <div className="contact__field">
+                        <label htmlFor="name" className="contact__label">Nome</label>
+                        <input
+                            type="text"
+                            id="name"
+                            className="contact__input"
+                            placeholder="Seu nome"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            required
+                        />
+                    </div>
+
+                    <div className="contact__field">
+                        <label htmlFor="email" className="contact__label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            className="contact__input"
+                            placeholder="seu@email.com"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            required
+                        />
+                    </div>
+
+                    <div className="contact__field">
+                        <label htmlFor="message" className="contact__label">Mensagem</label>
+                        <textarea
+                            id="message"
+                            className="contact__textarea"
+                            placeholder="Conte-me sobre seu projeto..."
+                            value={formData.message}
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" className="contact__btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22,2 15,22 11,13 2,9" />
+                        </svg>
+                        Enviar Mensagem
+                    </button>
+                </form>
+
+                <div className="contact__info">
+                    <p className="contact__info-text">Ou entre em contato diretamente:</p>
+                    <a href="mailto:brunik56@hotmail.com" className="contact__email">
+                        brunik56@hotmail.com
                     </a>
-
-                    <a href="tel:+5531991618392" className={styles.contact__card}>
-                        <div className={styles.contact__icon}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.12 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                            </svg>
-                        </div>
-                        <span className={styles.contact__label}>Telefone</span>
-                        <span className={styles.contact__value}>(31) 99161-8392</span>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/brunomeireles" target="_blank" rel="noopener noreferrer" className={styles.contact__card}>
-                        <div className={styles.contact__icon}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
-                                <rect x="2" y="9" width="4" height="12" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </div>
-                        <span className={styles.contact__label}>LinkedIn</span>
-                        <span className={styles.contact__value}>/brunomeireles</span>
-                    </a>
-
-                    <a href="https://github.com/brunomeireles" target="_blank" rel="noopener noreferrer" className={styles.contact__card}>
-                        <div className={styles.contact__icon}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-                            </svg>
-                        </div>
-                        <span className={styles.contact__label}>GitHub</span>
-                        <span className={styles.contact__value}>/brunomeireles</span>
-                    </a>
-                </div>
-
-                <div className={styles.contact__copyright}>
-                    <p>© {new Date().getFullYear()} Bruno Meireles. Todos os direitos reservados.</p>
                 </div>
             </div>
-        </footer>
+        </section>
     );
 }

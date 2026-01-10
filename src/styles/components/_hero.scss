@@ -1,0 +1,422 @@
+// ============================================
+// Component Styles - Hero
+// ============================================
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px;
+
+    // Background layers
+    &__background {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+    &__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba($color-accent, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba($color-accent, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+    }
+
+    &__gradient {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 60% 60% at 70% 40%, rgba($color-accent, 0.12) 0%, transparent 60%),
+            radial-gradient(ellipse 40% 40% at 30% 70%, rgba($color-accent-secondary, 0.08) 0%, transparent 50%);
+    }
+
+    &__blur {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba($color-accent, 0.15);
+        filter: blur(100px);
+        top: 20%;
+        right: 15%;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    // Container
+    &__container {
+        @include container;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $spacing-12;
+        align-items: center;
+
+        @include respond-to(lg) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    // Content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-6;
+    }
+
+    &__label {
+        font-family: $font-family-mono;
+        font-size: $font-size-sm;
+        color: $color-accent;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+
+        &::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: $color-accent;
+        }
+    }
+
+    &__greeting {
+        font-family: $font-family-primary;
+        font-size: $font-size-xl;
+        color: $color-text-secondary;
+        font-weight: $font-weight-normal;
+
+        @include respond-to(md) {
+            font-size: $font-size-2xl;
+        }
+    }
+
+    &__name {
+        font-family: $font-family-mono;
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        color: $color-text-primary;
+        line-height: $line-height-tight;
+
+        @include respond-to(md) {
+            font-size: $font-size-5xl;
+        }
+
+        @include respond-to(lg) {
+            font-size: $font-size-6xl;
+        }
+    }
+
+    &__cursor {
+        display: inline-block;
+        width: 4px;
+        height: 1em;
+        background: $color-accent;
+        margin-left: 4px;
+        animation: blink 1s step-end infinite;
+    }
+
+    &__description {
+        font-family: $font-family-primary;
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+        max-width: 500px;
+
+        @include respond-to(md) {
+            font-size: $font-size-lg;
+        }
+    }
+
+    // Actions
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-4;
+        margin-top: $spacing-4;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2;
+        padding: $spacing-3 $spacing-6;
+        font-family: $font-family-mono;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all $transition-base;
+        border-radius: $radius-sm;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        &--primary {
+            background: $color-accent;
+            color: $color-bg-primary;
+            border-color: $color-accent;
+
+            &:hover {
+                background: transparent;
+                color: $color-accent;
+                box-shadow: $shadow-glow;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: $spacing-3;
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid $color-border;
+        background: transparent;
+        color: $color-text-secondary;
+        cursor: pointer;
+        transition: all $transition-base;
+        border-radius: $radius-sm;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            border-color: $color-accent;
+            color: $color-accent;
+            box-shadow: $shadow-glow;
+        }
+    }
+
+    // Image section
+    &__image-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include respond-to(lg) {
+            justify-content: flex-end;
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        width: 280px;
+        height: 280px;
+
+        @include respond-to(md) {
+            width: 350px;
+            height: 350px;
+        }
+
+        @include respond-to(lg) {
+            width: 400px;
+            height: 400px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 50%;
+        border: 3px solid $color-border;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__circle {
+        position: absolute;
+        inset: -15px;
+        border: 2px dashed $color-accent;
+        border-radius: 50%;
+        animation: spin 20s linear infinite;
+        opacity: 0.5;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: $color-accent;
+            border-radius: 50%;
+        }
+
+        &::before {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__circle-glow {
+        position: absolute;
+        inset: -30px;
+        border: 1px solid rgba($color-accent, 0.2);
+        border-radius: 50%;
+        animation: spin 30s linear infinite reverse;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: $color-accent-secondary;
+            border-radius: 50%;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px $color-accent-secondary;
+        }
+    }
+
+    // Decorative elements
+    &__particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    &__particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: $color-accent;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: float 6s ease-in-out infinite;
+
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+                top: random(80) + 10%;
+                left: random(80) + 10%;
+                animation-delay: #{$i * 0.5}s;
+                animation-duration: #{4 + random(4)}s;
+            }
+        }
+    }
+
+    // Scroll indicator
+    &__scroll {
+        position: absolute;
+        bottom: $spacing-8;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-2;
+        color: $color-text-muted;
+        font-family: $font-family-mono;
+        font-size: $font-size-xs;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        transition: color $transition-base;
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+
+    &__scroll-mouse {
+        width: 24px;
+        height: 36px;
+        border: 2px solid currentColor;
+        border-radius: 12px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 2px;
+            animation: scroll-wheel 2s ease-in-out infinite;
+        }
+    }
+}
+
+// Animations
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes scroll-wheel {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateX(-50%) translateY(4px);
+    }
+}

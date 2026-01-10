@@ -1,11 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './Header.module.scss';
 
 const navLinks = [
+    { href: '#hero', label: 'Home' },
     { href: '#projects', label: 'Projetos' },
-    { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experiência' },
     { href: '#about', label: 'Sobre' },
     { href: '#contact', label: 'Contato' },
@@ -34,38 +33,63 @@ export default function Header() {
     };
 
     return (
-        <header className={`${styles.header} ${isScrolled ? styles['header--scrolled'] : ''}`}>
-            <div className={styles.header__container}>
-                <a href="#" className={styles.header__logo}>
-                    <span className={styles.header__logoAccent}>B</span>runo
-                    <span className={styles.header__logoDot}>.</span>
+        <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+            <div className="header__container">
+                <a href="#hero" className="header__logo">
+                    Bruno<span className="header__logo-dot">.</span>
                 </a>
 
-                <nav className={`${styles.header__nav} ${isMobileMenuOpen ? styles['header__nav--open'] : ''}`}>
-                    <ul className={styles.header__navList}>
-                        {navLinks.map((link) => (
-                            <li key={link.href} className={styles.header__navItem}>
-                                <a
-                                    href={link.href}
-                                    className={styles.header__navLink}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                >
-                                    {link.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                <nav className="header__nav">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className="header__link"
+                            onClick={(e) => handleNavClick(e, link.href)}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
                 </nav>
 
+                <a
+                    href="/cv_bruno_meireles.pdf"
+                    download
+                    className="header__cta"
+                >
+                    Download CV
+                </a>
+
                 <button
-                    className={`${styles.header__menuBtn} ${isMobileMenuOpen ? styles['header__menuBtn--open'] : ''}`}
+                    className={`header__menu-btn ${isMobileMenuOpen ? 'header__menu-btn--open' : ''}`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle menu"
+                    aria-label="Abrir menu"
                 >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+            </div>
+
+            {/* Mobile menu */}
+            <div className={`header__mobile-menu ${isMobileMenuOpen ? 'header__mobile-menu--open' : ''}`}>
+                {navLinks.map((link) => (
+                    <a
+                        key={link.href}
+                        href={link.href}
+                        className="header__mobile-link"
+                        onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                        {link.label}
+                    </a>
+                ))}
+                <a
+                    href="/cv_bruno_meireles.pdf"
+                    download
+                    className="header__mobile-cta"
+                >
+                    Download CV
+                </a>
             </div>
         </header>
     );
