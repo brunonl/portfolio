@@ -52,6 +52,7 @@
     transition: all $transition-base;
     opacity: 0;
     transform: translateY(30px);
+    cursor: pointer;
 
     &--visible {
         opacity: 1;
@@ -64,6 +65,10 @@
 
         .project-card__image {
             transform: scale(1.05);
+        }
+
+        .project-card__overlay {
+            opacity: 1;
         }
     }
 
@@ -79,6 +84,42 @@
         object-fit: cover;
         object-position: top;
         transition: transform $transition-slow;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba($color-bg-primary, 0.85);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity $transition-base;
+        z-index: 10;
+    }
+
+    &__overlay-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-3;
+        color: $color-accent;
+        text-align: center;
+
+        svg {
+            width: 32px;
+            height: 32px;
+            animation: float-up 0.6s ease-in-out infinite;
+        }
+
+        span {
+            font-family: $font-family-mono;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-semibold;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
     }
 
     &__content {
@@ -132,39 +173,10 @@
 
     // Fixed footer with button
     &__footer {
-        margin-top: auto;
-        padding-top: $spacing-6;
-        display: flex;
-        justify-content: flex-start; // Left aligned
-        z-index: 2; // Ensure clickable
+        display: none;
     }
 
     &__details-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: $spacing-2;
-        padding: $spacing-2 $spacing-4; // Small padding
-        font-family: $font-family-mono;
-        font-size: $font-size-xs; // Small font
-        font-weight: $font-weight-medium;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        background: $color-accent; // Blue background
-        color: $color-bg-primary;
-        border: none;
-        border-radius: $radius-sm;
-        cursor: pointer;
-        transition: all $transition-base;
-
-        svg {
-            width: 14px;
-            height: 14px;
-        }
-
-        &:hover {
-            background: color.adjust($color-accent, $lightness: 10%);
-            transform: translateY(-2px);
-            box-shadow: $shadow-glow;
-        }
+        display: none;
     }
 }
