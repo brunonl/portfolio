@@ -78,105 +78,50 @@
         overflow: hidden;
     }
 
+    // Image styles - fix for white border
     &__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: top;
         transition: transform $transition-slow;
+        display: block; // Fix for white border at bottom
     }
 
+    // Overlay removed as button is now always visible
     &__overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba($color-bg-primary, 0.85);
-        backdrop-filter: blur(4px);
+        display: none;
+    }
+
+    // Details button - visible on ALL screens
+    &__details-btn {
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        transition: opacity $transition-base;
-        z-index: 10;
-    }
-
-    &__overlay-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: $spacing-3;
+        gap: $spacing-2;
+        width: 100%;
+        margin-top: $spacing-4;
+        padding: $spacing-3;
+        font-family: $font-family-mono;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
         color: $color-accent;
-        text-align: center;
+        background: rgba($color-accent, 0.1);
+        border: 1px solid rgba($color-accent, 0.3);
+        border-radius: $radius-sm;
+        cursor: pointer;
+        transition: all $transition-base;
 
         svg {
-            width: 32px;
-            height: 32px;
-            animation: float-up 0.6s ease-in-out infinite;
+            width: 14px;
+            height: 14px;
         }
 
-        span {
-            font-family: $font-family-mono;
-            font-size: $font-size-sm;
-            font-weight: $font-weight-semibold;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        &:hover {
+            background: rgba($color-accent, 0.2);
+            border-color: $color-accent;
         }
-    }
-
-    &__content {
-        flex: 1;
-        padding: $spacing-5;
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__category {
-        display: inline-block;
-        font-family: $font-family-mono;
-        font-size: $font-size-xs;
-        color: $color-accent;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: $spacing-2;
-    }
-
-    &__title {
-        font-family: $font-family-mono;
-        font-size: $font-size-lg;
-        font-weight: $font-weight-semibold;
-        margin-bottom: $spacing-2;
-    }
-
-    &__description {
-        font-family: $font-family-primary;
-        font-size: $font-size-sm;
-        color: $color-text-secondary;
-        line-height: $line-height-relaxed;
-        margin-bottom: $spacing-4;
-        flex: 1;
-    }
-
-    &__stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-2;
-    }
-
-    &__tech {
-        font-family: $font-family-mono;
-        font-size: $font-size-xs;
-        color: $color-text-muted;
-        padding: $spacing-1 $spacing-2;
-        background: rgba($color-accent, 0.1);
-        border: 1px solid $color-border;
-        border-radius: $radius-sm;
-    }
-
-    // Fixed footer with button
-    &__footer {
-        display: none;
-    }
-
-    &__details-btn {
-        display: none;
     }
 }

@@ -8,10 +8,10 @@
 @use "animations";
 
 // Components
-@use "components/hero";
-@use "components/header";
-@use "components/projects";
-@use "components/modal";
-@use "components/about";
-@use "components/contact";
-@use "components/timeline";
+@use "./components/hero";
+@use "./components/header";
+@use "./components/projects";
+@use "./components/modal";
+@use "./components/about";
+@use "./components/contact";
+@use "./components/timeline";

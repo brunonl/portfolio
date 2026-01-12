@@ -24,6 +24,7 @@ const translations = {
         'hero.greeting': 'Olá, eu sou',
         'hero.label': 'Senior Frontend Engineer',
         'hero.description': '+10 anos criando experiências digitais de impacto, com atuação em diversas stacks e tecnologias.',
+        'hero.viewProjects': 'Ver Projetos',
 
         // Projects
         'projects.title': 'Projetos',
@@ -78,8 +79,14 @@ const translations = {
         'about.text2': 'Atuei em projetos para empresas como Cemig, Caixa Econômica Federal, BDMG, Sebrae e UFMG. Experiência em liderança técnica, mentoria de desenvolvedores e ambientes Scrum.',
 
         // Contact
-        'contact.title': 'Vamos Conversar',
-        'contact.subtitle': 'Tem um projeto em mente? Entre em contato e vamos transformar ideias em realidade.',
+        'contact.title': 'Contatos',
+        'contact.subtitle': 'Estou disponível para novas oportunidades. Entre em contato!',
+        'contact.whatsappLabel': 'WhatsApp',
+        'contact.whatsappAction': 'Chamar',
+        'contact.emailLabel': 'E-mail',
+        'contact.emailAction': 'Enviar',
+        'contact.linkedinLabel': 'LinkedIn',
+        'contact.linkedinAction': 'Conectar',
         'contact.form.name': 'Nome',
         'contact.form.namePlaceholder': 'Seu nome',
         'contact.form.email': 'Email',
@@ -103,6 +110,7 @@ const translations = {
         'hero.greeting': 'Hi, I am',
         'hero.label': 'Senior Frontend Engineer',
         'hero.description': '+10 years build impactful digital experiences, working with various stacks and technologies.',
+        'hero.viewProjects': 'View Projects',
 
         // Projects
         'projects.title': 'Selected',
@@ -157,8 +165,14 @@ const translations = {
         'about.text2': 'Worked on projects for companies like Cemig, Caixa Econômica Federal, BDMG, Sebrae and UFMG. Experience in technical leadership, developer mentoring and Scrum environments.',
 
         // Contact
-        'contact.title': 'Let\'s Talk',
-        'contact.subtitle': 'Have a project in mind? Get in touch and let\'s turn ideas into reality.',
+        'contact.title': 'Contacts',
+        'contact.subtitle': 'I\'m available for new opportunities. Get in touch!',
+        'contact.whatsappLabel': 'WhatsApp',
+        'contact.whatsappAction': 'Call',
+        'contact.emailLabel': 'E-mail',
+        'contact.emailAction': 'Send',
+        'contact.linkedinLabel': 'LinkedIn',
+        'contact.linkedinAction': 'Connect',
         'contact.form.name': 'Name',
         'contact.form.namePlaceholder': 'Your name',
         'contact.form.email': 'Email',
