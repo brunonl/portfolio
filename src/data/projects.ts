@@ -48,6 +48,7 @@ export const projects: Project[] = [
     fullDescription: 'project.lidery.fullDescription',
     image: '/images/projects/lidery.png',
     liveUrl: 'https://liderynl.github.io',
+    repoUrl: 'https://github.com/liderynl/liderynl.github.io',
     stack: ['HTML5', 'CSS3', 'Bootstrap'],
     category: 'Landing Page'
   },
@@ -58,7 +59,9 @@ export const projects: Project[] = [
     fullDescription: 'project.microscopia.fullDescription',
     image: '/images/projects/microscopia.png',
     liveUrl: 'https://microscopia-ufmg.github.io/',
+    repoUrl: 'https://github.com/microscopia-ufmg/microscopia-ufmg.github.io',
     stack: ['HTML5', 'CSS3', 'JavaScript'],
     category: 'Institucional'
   }
 ];
+

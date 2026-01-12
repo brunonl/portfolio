@@ -9,12 +9,12 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: $z-index-header;
+    z-index: 9999; // Very high to ensure it's above everything
     padding: $spacing-4 0;
     transition: all $transition-base;
 
     &--scrolled {
-        background: rgba($color-bg-primary, 0.85);
+        background: rgba($color-bg-primary, 0.95);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid $color-border;
     }
@@ -193,11 +193,14 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba($color-bg-primary, 0.98);
-        backdrop-filter: blur(20px);
+        height: calc(100vh - 60px); // Explicit height
+        width: 100%;
+        background: $color-bg-primary; // Fully opaque
         padding: $spacing-8;
         flex-direction: column;
         gap: $spacing-6;
+        z-index: 9998;
+        overflow-y: auto;
 
         &--open {
             display: flex;

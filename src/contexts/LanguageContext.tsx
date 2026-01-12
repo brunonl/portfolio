@@ -31,8 +31,8 @@ const translations = {
         'projects.titleAccent': 'Selecionados',
         'projects.subtitle': 'Uma seleção de trabalhos que demonstram minha experiência em criar interfaces modernas e funcionais.',
         'projects.viewDetails': 'Ver Detalhes',
-        'projects.accessProject': 'Acessar projeto',
-        'projects.accessRepo': 'Acessar repositório',
+        'projects.accessProject': 'Ver Projeto',
+        'projects.accessRepo': 'Ver Código',
         'projects.technologies': 'Tecnologias',
 
         // Projects Data
@@ -117,8 +117,8 @@ const translations = {
         'projects.titleAccent': 'Projects',
         'projects.subtitle': 'A selection of work showcasing my experience in building modern, functional interfaces.',
         'projects.viewDetails': 'View Details',
-        'projects.accessProject': 'Visit project',
-        'projects.accessRepo': 'View repository',
+        'projects.accessProject': 'Live Demo',
+        'projects.accessRepo': 'Source Code',
         'projects.technologies': 'Technologies',
 
         // Projects Data
