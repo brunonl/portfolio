@@ -18,17 +18,8 @@
     }
 
     &__title {
-        font-family: $font-family-mono;
-        font-size: $font-size-3xl;
+        @include section-title;
         margin-bottom: $spacing-4;
-
-        @include respond-to(md) {
-            font-size: $font-size-4xl;
-        }
-
-        span {
-            @include text-gradient;
-        }
     }
 
     &__subtitle {

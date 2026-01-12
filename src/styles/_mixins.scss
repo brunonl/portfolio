@@ -111,6 +111,22 @@
     background-clip: text;
 }
 
+@mixin section-title {
+    font-family: $font-family-mono;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    line-height: $line-height-tight;
+
+    @include respond-to(md) {
+        font-size: $font-size-4xl;
+    }
+
+    span {
+        @include text-gradient;
+    }
+}
+
 // Button base
 @mixin button-base {
     display: inline-flex;

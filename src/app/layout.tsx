@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.scss";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -27,7 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${jetbrainsMono.variable} ${outfit.variable}`}>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }

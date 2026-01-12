@@ -1,16 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const navLinks = [
-    { href: '#hero', label: 'Home' },
-    { href: '#projects', label: 'Projetos' },
-    { href: '#experience', label: 'Experiência' },
-    { href: '#about', label: 'Sobre' },
-    { href: '#contact', label: 'Contato' },
+    { href: '#hero', key: 'nav.home' },
+    { href: '#projects', key: 'nav.projects' },
+    { href: '#experience', key: 'nav.experience' },
+    { href: '#about', key: 'nav.about' },
+    { href: '#contact', key: 'nav.contact' },
 ];
 
 export default function Header() {
+    const { language, setLanguage, t } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -47,18 +49,37 @@ export default function Header() {
                             className="header__link"
                             onClick={(e) => handleNavClick(e, link.href)}
                         >
-                            {link.label}
+                            {t(link.key)}
                         </a>
                     ))}
                 </nav>
 
-                <a
-                    href="/cv_bruno_meireles.pdf"
-                    download
-                    className="header__cta"
-                >
-                    Download CV
-                </a>
+                <div className="header__actions">
+                    {/* Language Switch */}
+                    <div className="header__lang-switch">
+                        <button
+                            className={`header__lang ${language === 'pt' ? 'header__lang--active' : ''}`}
+                            onClick={() => setLanguage('pt')}
+                        >
+                            PT
+                        </button>
+                        <span className="header__lang-divider">/</span>
+                        <button
+                            className={`header__lang ${language === 'en' ? 'header__lang--active' : ''}`}
+                            onClick={() => setLanguage('en')}
+                        >
+                            EN
+                        </button>
+                    </div>
+
+                    <a
+                        href="/cv_bruno_meireles.pdf"
+                        download
+                        className="header__cta"
+                    >
+                        {t('header.downloadCv')}
+                    </a>
+                </div>
 
                 <button
                     className={`header__menu-btn ${isMobileMenuOpen ? 'header__menu-btn--open' : ''}`}
@@ -80,15 +101,32 @@ export default function Header() {
                         className="header__mobile-link"
                         onClick={(e) => handleNavClick(e, link.href)}
                     >
-                        {link.label}
+                        {t(link.key)}
                     </a>
                 ))}
+
+                {/* Mobile language switch */}
+                <div className="header__mobile-lang">
+                    <button
+                        className={`header__lang ${language === 'pt' ? 'header__lang--active' : ''}`}
+                        onClick={() => setLanguage('pt')}
+                    >
+                        Português
+                    </button>
+                    <button
+                        className={`header__lang ${language === 'en' ? 'header__lang--active' : ''}`}
+                        onClick={() => setLanguage('en')}
+                    >
+                        English
+                    </button>
+                </div>
+
                 <a
                     href="/cv_bruno_meireles.pdf"
                     download
                     className="header__mobile-cta"
                 >
-                    Download CV
+                    {t('header.downloadCv')}
                 </a>
             </div>
         </header>

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -12,7 +14,7 @@ export default function Contact() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // For now, open email client with pre-filled data
-        const subject = encodeURIComponent(`Contato do Portfólio - ${formData.name}`);
+        const subject = encodeURIComponent(`${t('contact.title')} - ${formData.name}`);
         const body = encodeURIComponent(`Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`);
         window.location.href = `mailto:brunik56@hotmail.com?subject=${subject}&body=${body}`;
     };
@@ -21,20 +23,20 @@ export default function Contact() {
         <section className="contact" id="contact">
             <div className="contact__container">
                 <h2 className="contact__title">
-                    Vamos <span>Conversar</span>
+                    {t('contact.title').split(' ')[0]} <span>{t('contact.title').split(' ')[1]}</span>
                 </h2>
                 <p className="contact__subtitle">
-                    Tem um projeto em mente? Entre em contato e vamos transformar ideias em realidade.
+                    {t('contact.subtitle')}
                 </p>
 
                 <form className="contact__form" onSubmit={handleSubmit}>
                     <div className="contact__field">
-                        <label htmlFor="name" className="contact__label">Nome</label>
+                        <label htmlFor="name" className="contact__label">{t('contact.form.name')}</label>
                         <input
                             type="text"
                             id="name"
                             className="contact__input"
-                            placeholder="Seu nome"
+                            placeholder={t('contact.form.namePlaceholder')}
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             required
@@ -42,12 +44,12 @@ export default function Contact() {
                     </div>
 
                     <div className="contact__field">
-                        <label htmlFor="email" className="contact__label">Email</label>
+                        <label htmlFor="email" className="contact__label">{t('contact.form.email')}</label>
                         <input
                             type="email"
                             id="email"
                             className="contact__input"
-                            placeholder="seu@email.com"
+                            placeholder={t('contact.form.emailPlaceholder')}
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             required
@@ -55,11 +57,11 @@ export default function Contact() {
                     </div>
 
                     <div className="contact__field">
-                        <label htmlFor="message" className="contact__label">Mensagem</label>
+                        <label htmlFor="message" className="contact__label">{t('contact.form.message')}</label>
                         <textarea
                             id="message"
                             className="contact__textarea"
-                            placeholder="Conte-me sobre seu projeto..."
+                            placeholder={t('contact.form.messagePlaceholder')}
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             required
@@ -71,12 +73,12 @@ export default function Contact() {
                             <line x1="22" y1="2" x2="11" y2="13" />
                             <polygon points="22,2 15,22 11,13 2,9" />
                         </svg>
-                        Enviar Mensagem
+                        {t('contact.form.send')}
                     </button>
                 </form>
 
                 <div className="contact__info">
-                    <p className="contact__info-text">Ou entre em contato diretamente:</p>
+                    <p className="contact__info-text">{t('contact.or')}</p>
                     <a href="mailto:brunik56@hotmail.com" className="contact__email">
                         brunik56@hotmail.com
                     </a>
