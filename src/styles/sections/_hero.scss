@@ -38,7 +38,7 @@
             radial-gradient(ellipse 40% 40% at 30% 70%, rgba($color-accent-secondary, 0.08) 0%, transparent 50%);
     }
 
-    // Glow effect - larger spread, NO DELAY
+    // Glow effect - larger spread, no delay
     &__glow {
         position: absolute;
         width: 800px;
@@ -55,7 +55,7 @@
         // NO transition for instant response
         opacity: 0;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             opacity: 1;
         }
     }
@@ -71,7 +71,7 @@
         gap: $spacing-8;
         text-align: center;
 
-        @include respond-to(lg) {
+        @include media-breakpoint-up(lg) {
             display: grid;
             grid-template-columns: 1fr 1fr;
             text-align: left;
@@ -87,11 +87,11 @@
         gap: $spacing-4;
         order: 2;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             gap: $spacing-6;
         }
 
-        @include respond-to(lg) {
+        @include media-breakpoint-up(lg) {
             align-items: flex-start;
             order: 1;
         }
@@ -107,7 +107,7 @@
         align-items: center;
         gap: $spacing-2;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-sm;
         }
 
@@ -117,7 +117,7 @@
             height: 2px;
             background: $color-accent;
 
-            @include respond-to(md) {
+            @include media-breakpoint-up(md) {
                 width: 24px;
             }
         }
@@ -129,7 +129,7 @@
         color: $color-text-secondary;
         font-weight: $font-weight-normal;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-2xl;
         }
     }
@@ -139,13 +139,16 @@
         font-weight: $font-weight-bold;
         line-height: $line-height-tight;
         font-size: $font-size-2xl;
+        // Mobile: single line
         white-space: nowrap;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-5xl;
+            // Desktop: allows line break
+            white-space: normal;
         }
 
-        @include respond-to(lg) {
+        @include media-breakpoint-up(lg) {
             font-size: $font-size-6xl;
         }
     }
@@ -155,9 +158,11 @@
     }
 
     &__name-last {
-        color: $color-text-primary;
+        // Mobile: blue accent
+        color: $color-accent;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
+            // Desktop: azul (mantém)
             color: $color-accent;
         }
     }
@@ -170,7 +175,7 @@
         margin-left: 4px;
         opacity: 1;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             width: 4px;
         }
 
@@ -186,7 +191,7 @@
         line-height: $line-height-relaxed;
         max-width: 500px;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-lg;
         }
     }
@@ -200,88 +205,14 @@
         margin-top: $spacing-4;
         width: 100%;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             flex-direction: row;
             flex-wrap: wrap;
             width: auto;
         }
 
-        @include respond-to(lg) {
+        @include media-breakpoint-up(lg) {
             align-items: flex-start;
-        }
-    }
-
-    &__btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: $spacing-2;
-        padding: $spacing-3 $spacing-6;
-        font-family: $font-family-mono;
-        font-size: $font-size-xs;
-        font-weight: $font-weight-medium;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border: 1px solid transparent;
-        cursor: pointer;
-        transition: all $transition-base;
-        border-radius: $radius-sm;
-
-        @include respond-to(md) {
-            font-size: $font-size-sm;
-        }
-
-        svg {
-            width: 16px;
-            height: 16px;
-
-            @include respond-to(md) {
-                width: 18px;
-                height: 18px;
-            }
-        }
-
-        &--primary {
-            background: $color-accent;
-            color: $color-bg-primary;
-            border-color: $color-accent;
-
-            &:hover {
-                background: transparent;
-                color: $color-accent;
-                box-shadow: $shadow-glow;
-            }
-        }
-
-        &--secondary {
-            background: transparent;
-            color: $color-accent;
-            border-color: $color-accent;
-
-            &:hover {
-                background: rgba($color-accent, 0.1);
-                box-shadow: $shadow-glow;
-            }
-        }
-
-        // Mobile-only CTA
-        &--mobile-cta {
-            width: 100%;
-            max-width: 280px;
-            display: flex;
-
-            @include respond-to(md) {
-                display: none;
-            }
-        }
-
-        // Desktop-only buttons
-        &--desktop {
-            display: none;
-
-            @include respond-to(md) {
-                display: inline-flex;
-            }
         }
     }
 
@@ -290,40 +221,16 @@
         gap: $spacing-3;
     }
 
-    &__social {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border: 1px solid $color-border;
-        background: transparent;
-        color: $color-text-secondary;
-        cursor: pointer;
-        transition: all $transition-base;
-        border-radius: $radius-sm;
-
-        svg {
-            width: 20px;
-            height: 20px;
-        }
-
+    // WhatsApp specific hover - green
+    &__social--whatsapp {
         &:hover {
-            border-color: $color-accent;
-            color: $color-accent;
-            box-shadow: $shadow-glow;
-        }
-
-        &--whatsapp {
-            &:hover {
-                border-color: #25D366;
-                color: #25D366;
-                box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
-            }
+            border-color: #25D366;
+            color: #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
         }
     }
 
-    // Image section
+    // Image section with fade-in animation
     &__image-wrapper {
         position: relative;
         display: flex;
@@ -331,9 +238,25 @@
         align-items: center;
         order: 1;
 
-        @include respond-to(lg) {
+        // Fade-in animation on load
+        opacity: 0;
+        animation: heroImageFadeIn 0.8s ease-out 0.3s forwards;
+
+        @include media-breakpoint-up(lg) {
             justify-content: flex-end;
             order: 2;
+        }
+    }
+
+    @keyframes heroImageFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 
@@ -342,12 +265,12 @@
         width: 160px;
         height: 160px;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             width: 280px;
             height: 280px;
         }
 
-        @include respond-to(lg) {
+        @include media-breakpoint-up(lg) {
             width: 340px;
             height: 340px;
         }
@@ -362,7 +285,7 @@
         fill: transparent;
         z-index: 1;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             inset: -16px;
             width: calc(100% + 32px);
             height: calc(100% + 32px);
@@ -420,7 +343,7 @@
         background: none;
         border: none;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             display: flex;
         }
 

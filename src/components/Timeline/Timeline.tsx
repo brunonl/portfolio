@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { experiences } from '@/data/experience';
 
 export default function Timeline() {
-    const { t } = useLanguage();
+    const { translate } = useLanguage();
     const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
@@ -35,10 +35,10 @@ export default function Timeline() {
             <div className="timeline__container">
                 <div className="timeline__header">
                     <h2 className="timeline__title">
-                        {t('experience.title')} <span>{t('experience.titleAccent')}</span>
+                        {translate('experience.title')} <span>{translate('experience.titleAccent')}</span>
                     </h2>
                     <p className="timeline__subtitle">
-                        {t('experience.subtitle')}
+                        {translate('experience.subtitle')}
                     </p>
                 </div>
 
@@ -51,18 +51,18 @@ export default function Timeline() {
                             style={{ transitionDelay: `${index * 0.1}s` }}
                         >
                             <span className="timeline__period">{exp.period}</span>
-                            <h3 className="timeline__role">{t(exp.role)}</h3>
+                            <h3 className="timeline__role">{translate(exp.role)}</h3>
                             <p className="timeline__company">
                                 @ <a href="#" target="_blank" rel="noopener noreferrer">{exp.company}</a>
                             </p>
-                            <p className="timeline__description">{t(exp.description)}</p>
+                            <p className="timeline__description">{translate(exp.description)}</p>
                         </div>
                     ))}
                 </div>
 
                 <div className="timeline__footer">
                     <p className="timeline__linkedin">
-                        {t('experience.linkedinCta')}{' '}
+                        {translate('experience.linkedinCta')}{' '}
                         <a
                             href="https://linkedin.com/in/brunomeireles"
                             target="_blank"
@@ -76,3 +76,4 @@ export default function Timeline() {
         </section>
     );
 }
+

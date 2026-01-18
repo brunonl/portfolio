@@ -35,7 +35,7 @@
         font-size: $font-size-2xl;
         margin-bottom: $spacing-8; // Reduced spacing
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-3xl;
             margin-bottom: $spacing-12;
         }
@@ -52,7 +52,7 @@
         align-items: flex-start;
         gap: $spacing-4; // Optimized mobile spacing
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             gap: $spacing-8;
         }
     }
@@ -74,7 +74,7 @@
         max-width: 130px;
         justify-content: center;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             min-width: 180px;
             max-width: 220px;
             padding: $spacing-6;
@@ -115,7 +115,7 @@
         position: relative;
         flex-shrink: 0;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             width: 64px;
             height: 64px;
         }
@@ -138,7 +138,7 @@
             position: relative;
             z-index: 1;
 
-            @include respond-to(md) {
+            @include media-breakpoint-up(md) {
                 width: 24px;
                 height: 24px;
             }
@@ -153,7 +153,7 @@
         transition: color $transition-base;
         white-space: nowrap;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-base;
         }
     }
@@ -166,7 +166,7 @@
         word-break: break-all;
         line-height: 1.3;
 
-        @include respond-to(md) {
+        @include media-breakpoint-up(md) {
             font-size: $font-size-xs;
             word-break: normal;
         }

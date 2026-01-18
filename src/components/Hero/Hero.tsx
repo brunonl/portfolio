@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
-    const { t } = useLanguage();
+    const { translate } = useLanguage();
     const heroRef = useRef<HTMLElement>(null);
     const [displayedText, setDisplayedText] = useState('');
     const [isTypingComplete, setIsTypingComplete] = useState(false);
@@ -42,7 +42,7 @@ export default function Hero() {
         return () => clearInterval(typingInterval);
     }, [isMobile]);
 
-    // Mouse tracking for glow effect - no delay
+    // Mouse tracking for glow effect
     useEffect(() => {
         const hero = heroRef.current;
         if (!hero) return;
@@ -78,7 +78,7 @@ export default function Hero() {
             </div>
 
             <div className="hero__container">
-                {/* Photo with advanced animated circle - Luke Style */}
+                {/* Image Circle */}
                 <div className="hero__image-wrapper">
                     <div className="hero__image-container">
                         <svg className="hero__circle-svg" viewBox="0 0 506 506" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@ export default function Hero() {
                         </svg>
                         <div className="hero__image-blend">
                             <Image
-                                src="/images/bruno-meireles.png"
+                                src="/images/profile.png"
                                 alt="Bruno Meireles"
                                 width={400}
                                 height={400}
@@ -106,45 +106,43 @@ export default function Hero() {
 
                 {/* Content */}
                 <div className="hero__content">
-                    <span className="hero__label">{t('hero.label')}</span>
+                    <span className="hero__label">{translate('hero.label')}</span>
 
-                    <p className="hero__greeting">{t('hero.greeting')}</p>
+                    <p className="hero__greeting">{translate('hero.greeting')}</p>
 
                     <h1 className="hero__name">
-                        <span className="hero__name-first">Bruno </span>
-                        <span className="hero__name-last">
-                            {displayedText}
-                            {!isMobile && (
-                                <span className={`hero__cursor ${isTypingComplete ? 'hero__cursor--blink' : ''}`}></span>
-                            )}
-                        </span>
+                        {isMobile ? (
+                            // Mobile: one line, without typing
+                            <>
+                                <span className="hero__name-first">Bruno </span>
+                                <span className="hero__name-last">Meireles</span>
+                            </>
+                        ) : (
+                            // Desktop: two lines, with typing
+                            <>
+                                <span className="hero__name-first">Bruno</span>
+                                <br />
+                                <span className="hero__name-last">
+                                    {displayedText}
+                                    <span className={`hero__cursor ${isTypingComplete ? 'hero__cursor--blink' : ''}`}></span>
+                                </span>
+                            </>
+                        )}
                     </h1>
 
                     <p className="hero__description">
-                        {t('hero.description')}
+                        {translate('hero.description')}
                     </p>
 
                     <div className="hero__actions">
-                        {/* Mobile: Single CTA button */}
                         <button
                             onClick={() => handleScroll('#projects')}
-                            className="hero__btn hero__btn--primary hero__btn--mobile-cta"
+                            className="btn btn-primary"
                         >
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M12 5v14M5 12l7 7 7-7" />
                             </svg>
-                            {t('hero.viewProjects')}
-                        </button>
-
-                        {/* Desktop: View Projects button */}
-                        <button
-                            onClick={() => handleScroll('#projects')}
-                            className="hero__btn hero__btn--primary hero__btn--desktop"
-                        >
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M12 5v14M5 12l7 7 7-7" />
-                            </svg>
-                            {t('hero.viewProjects')}
+                            {translate('hero.viewProjects')}
                         </button>
 
                         <div className="hero__socials">
@@ -152,7 +150,7 @@ export default function Hero() {
                                 href="https://wa.me/5531991618392"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hero__social hero__social--whatsapp"
+                                className="btn btn-secondary btn-icon hero__social--whatsapp"
                                 aria-label="WhatsApp"
                             >
                                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -163,7 +161,7 @@ export default function Hero() {
                                 href="https://linkedin.com/in/brunomeireles"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hero__social"
+                                className="btn btn-secondary btn-icon"
                                 aria-label="LinkedIn"
                             >
                                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -187,3 +185,4 @@ export default function Hero() {
         </section>
     );
 }
+

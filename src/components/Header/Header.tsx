@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 export default function Header() {
-    const { language, setLanguage, t } = useLanguage();
+    const { language, setLanguage, translate } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -61,7 +61,7 @@ export default function Header() {
                             className="header__link"
                             onClick={(e) => handleNavClick(e, link.href)}
                         >
-                            {t(link.key)}
+                            {translate(link.key)}
                         </a>
                     ))}
                 </nav>
@@ -85,11 +85,11 @@ export default function Header() {
                     </div>
 
                     <a
-                        href="/cv_bruno_meireles.pdf"
+                        href="/cv_bruno_meireles_2026.pdf"
                         download
-                        className="header__cta"
+                        className="btn btn-primary header__cta"
                     >
-                        {t('header.downloadCv')}
+                        {translate('header.downloadCv')}
                     </a>
                 </div>
 
@@ -113,7 +113,7 @@ export default function Header() {
                         className="header__mobile-link"
                         onClick={(e) => handleNavClick(e, link.href)}
                     >
-                        {t(link.key)}
+                        {translate(link.key)}
                     </a>
                 ))}
 
@@ -136,11 +136,12 @@ export default function Header() {
                 <a
                     href="/cv_bruno_meireles.pdf"
                     download
-                    className="header__mobile-cta"
+                    className="btn btn-primary header__mobile-cta"
                 >
-                    {t('header.downloadCv')}
+                    {translate('header.downloadCv')}
                 </a>
             </div>
         </header>
     );
 }
+

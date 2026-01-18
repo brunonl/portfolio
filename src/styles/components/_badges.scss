@@ -1,0 +1,26 @@
+// ============================================
+// Global Component Styles - Badges
+// ============================================
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// Base badge class
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-1 $spacing-3;
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-accent;
+    background: rgba($color-accent, 0.15);
+    border: 1px solid rgba($color-accent, 0.4);
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+// Badge variants (if needed in future)
+.badge-primary {
+    @extend .badge;
+}

@@ -1,14 +1,8 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  fullDescription: string;
-  image: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  stack: string[];
-  category: string;
-}
+// ============================================
+// Projects Data - Bruno Meireles Portfolio
+// ============================================
+
+import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
@@ -19,7 +13,7 @@ export const projects: Project[] = [
     image: '/images/projects/coolabs.png',
     liveUrl: 'https://coolabs.ufmg.br/',
     stack: ['Next.js', 'SASS', 'TypeScript'],
-    category: 'Institucional'
+    category: 'Institucional',
   },
   {
     id: 'skyflix',
@@ -29,7 +23,7 @@ export const projects: Project[] = [
     image: '/images/projects/skyflix.png',
     liveUrl: 'https://www.skyflix.site/pt-br',
     stack: ['Next.js', 'TypeScript', 'SASS'],
-    category: 'Plataforma'
+    category: 'Plataforma',
   },
   {
     id: 'lanformation',
@@ -39,7 +33,7 @@ export const projects: Project[] = [
     image: '/images/projects/lanformation.png',
     liveUrl: 'https://lanformation.com.br/',
     stack: ['HTML5', 'CSS3', 'JavaScript'],
-    category: 'Corporativo'
+    category: 'Corporativo',
   },
   {
     id: 'lidery',
@@ -50,7 +44,7 @@ export const projects: Project[] = [
     liveUrl: 'https://liderynl.github.io',
     repoUrl: 'https://github.com/liderynl/liderynl.github.io',
     stack: ['HTML5', 'CSS3', 'Bootstrap'],
-    category: 'Landing Page'
+    category: 'Landing Page',
   },
   {
     id: 'microscopia',
@@ -61,7 +55,6 @@ export const projects: Project[] = [
     liveUrl: 'https://microscopia-ufmg.github.io/',
     repoUrl: 'https://github.com/microscopia-ufmg/microscopia-ufmg.github.io',
     stack: ['HTML5', 'CSS3', 'JavaScript'],
-    category: 'Institucional'
-  }
+    category: 'Institucional',
+  },
 ];
-

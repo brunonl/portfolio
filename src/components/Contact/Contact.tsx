@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Contact() {
-    const { t } = useLanguage();
+    const { translate } = useLanguage();
 
     const contacts = [
         {
@@ -48,7 +48,7 @@ export default function Contact() {
         <section className="contact" id="contact">
             <div className="contact__container">
                 <h2 className="contact__title">
-                    {t('contact.title')}
+                    {translate('contact.title')}
                 </h2>
 
                 <div className="contact__grid">
@@ -72,3 +72,4 @@ export default function Contact() {
         </section>
     );
 }
+

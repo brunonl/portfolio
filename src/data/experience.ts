@@ -1,11 +1,8 @@
-export interface Experience {
-    id: string;
-    role: string;
-    company: string;
-    companyUrl?: string;
-    period: string;
-    description: string;
-}
+// ============================================
+// Experience Data - Bruno Meireles Portfolio
+// ============================================
+
+import type { Experience } from '@/types';
 
 export const experiences: Experience[] = [
     {
