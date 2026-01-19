@@ -30,25 +30,17 @@ export const translations: Translations = {
         'projects.technologies': 'Tecnologias',
 
         // Projects Data
-        'project.coolabs.title': 'CooLabs UFMG',
-        'project.coolabs.description': 'Plataforma de cooperativa de laboratórios da UFMG.',
-        'project.coolabs.fullDescription': 'Plataforma de cooperativa de laboratórios da Universidade Federal de Minas Gerais. O projeto foi desenvolvido com foco em usabilidade e design moderno, facilitando a conexão entre pesquisadores e laboratórios disponíveis na universidade.',
+        'project.microscopia.title': 'Centro de Microscopia UFMG',
+        'project.microscopia.description': 'Portal responsivo desenvolvido para o Workshop Internacional de Microscopia Eletrônica da UFMG.',
+        'project.microscopia.fullDescription': 'Desenvolvimento front-end da landing page oficial para o \'Workshop on Electron Microscopy Cryo-techniques\', promovido pelo Centro de Microscopia da UFMG. O projeto destaca-se pela estruturação semântica (HTML5) e acessibilidade, utilizando Bootstrap para uma interface totalmente responsiva. Inclui integração com mapas interativos (Leaflet), cronograma dinâmico de palestras e otimização para SEO e performance.',
 
-        'project.skyflix.title': 'Skyflix',
-        'project.skyflix.description': 'Plataforma de streaming com conteúdo educativo e familiar.',
-        'project.skyflix.fullDescription': 'Plataforma de streaming com conteúdo educativo e familiar, desenvolvida com dark theme premium. O projeto inclui sistema de autenticação, playlists personalizadas e interface responsiva para múltiplos dispositivos.',
+        'project.audicenterbh.title': 'Audi Center BH',
+        'project.audicenterbh.description': 'Participação no desenvolvimento do portal institucional da Audi Center BH seguindo o Design System global da marca.',
+        'project.audicenterbh.fullDescription': 'Participação na implementação front-end do portal institucional da Audi Center Belo Horizonte. O projeto exigiu aderência rigorosa ao Audi Corporate Identity (CI), seguindo fielmente o Styleguide global da marca. Desenvolvido anteriormente à padronização em React da montadora, o desafio consistiu em desenvolver uma interface fiel aos padrões visuais da Audi. A solução entregou uma experiência responsiva com validação rigorosa de tipografia e grids, garantindo a consistência visual exigida por uma das mais conceituadas marcas premium do setor automotivo.',
 
         'project.lanformation.title': 'Lanformation',
-        'project.lanformation.description': 'Site corporativo para empresa de alocação de talentos.',
-        'project.lanformation.fullDescription': 'Site corporativo para empresa especializada em alocação de talentos em tecnologia. O projeto foi desenvolvido com foco em performance, SEO e apresentação institucional profissional.',
-
-        'project.lidery.title': 'Lidery',
-        'project.lidery.description': 'Clube de vantagens e economia para associados.',
-        'project.lidery.fullDescription': 'Clube de vantagens e economia para associados, com foco em experiência do usuário e conversão. Landing page desenvolvida para apresentar os benefícios do clube e capturar leads.',
-
-        'project.microscopia.title': 'Centro de Microscopia UFMG',
-        'project.microscopia.description': 'Portal científico para evento de microscopia eletrônica.',
-        'project.microscopia.fullDescription': 'Portal científico desenvolvido para evento de microscopia eletrônica e criotécnicas da UFMG. O site apresenta informações sobre o evento, palestrantes, programação e inscrições.',
+        'project.lanformation.description': 'Site institucional desenvolvido para empresa de serviços e soluções de TI de Belo Horizonte.',
+        'project.lanformation.fullDescription': 'Desenvolvimento front-end do portal institucional da Lanformation, empresa especializada em locação de mão de obra de TI (Body Shop), manutenção de equipamentos e infraestrutura tecnológica. O site foi projetado para transmitir credibilidade e profissionalismo, com seções claras de serviços, depoimentos de clientes e métricas de resultados. A interface responsiva utiliza animações sutis de scroll para engajar o usuário e destacar os diferenciais da empresa.',
 
         // Experience
         'experience.title': 'Experiência',
@@ -116,25 +108,17 @@ export const translations: Translations = {
         'projects.technologies': 'Technologies',
 
         // Projects Data
-        'project.coolabs.title': 'CooLabs UFMG',
-        'project.coolabs.description': 'Laboratory cooperative platform for UFMG.',
-        'project.coolabs.fullDescription': 'Laboratory cooperative platform for the Federal University of Minas Gerais. The project was developed with a focus on usability and modern design, facilitating the connection between researchers and available laboratories at the university.',
+        'project.microscopia.title': 'UFMG Microscopy Center',
+        'project.microscopia.description': 'Responsive portal developed for the UFMG International Workshop on Electron Microscopy.',
+        'project.microscopia.fullDescription': 'Front-end development of the official landing page for the \'Workshop on Electron Microscopy Cryo-techniques\', hosted by the UFMG Microscopy Center. The project stands out for its semantic structure (HTML5) and accessibility, using Bootstrap for a fully responsive interface. It includes integration with interactive maps (Leaflet), dynamic speaker schedule, and SEO and performance optimization.',
 
-        'project.skyflix.title': 'Skyflix',
-        'project.skyflix.description': 'Streaming platform with educational and family content.',
-        'project.skyflix.fullDescription': 'Streaming platform with educational and family content, developed with a premium dark theme. The project includes an authentication system, personalized playlists, and a responsive interface for multiple devices.',
+        'project.audicenterbh.title': 'Audi Center BH',
+        'project.audicenterbh.description': 'Participation in the development of the Audi Center BH institutional portal following the brand\'s global Design System.',
+        'project.audicenterbh.fullDescription': 'Participation in the front-end implementation of the Audi Center Belo Horizonte institutional portal. The project required strict adherence to Audi Corporate Identity (CI), faithfully following the brand\'s global Styleguide. Developed before the automaker\'s React standardization, the challenge was to develop an interface true to Audi\'s visual standards. The solution delivered a responsive experience with rigorous typography and grid validation, ensuring the visual consistency required by one of the most renowned premium brands in the automotive sector.',
 
         'project.lanformation.title': 'Lanformation',
-        'project.lanformation.description': 'Corporate website for a talent allocation company.',
-        'project.lanformation.fullDescription': 'Corporate website for a company specializing in technology talent allocation. The project was developed with a focus on performance, SEO, and professional institutional presentation.',
-
-        'project.lidery.title': 'Lidery',
-        'project.lidery.description': 'Benefits and savings club for members.',
-        'project.lidery.fullDescription': 'Benefits and savings club for members, focusing on user experience and conversion. Landing page developed to present the club\'s benefits and capture leads.',
-
-        'project.microscopia.title': 'Microscopy Center UFMG',
-        'project.microscopia.description': 'Scientific portal for electron microscopy event.',
-        'project.microscopia.fullDescription': 'Scientific portal developed for the electron microscopy and cryotechniques event at UFMG. The site presents information about the event, speakers, schedule, and registration.',
+        'project.lanformation.description': 'Institutional website developed for an IT services and solutions company in Belo Horizonte.',
+        'project.lanformation.fullDescription': 'Front-end development of the Lanformation institutional portal, a company specializing in IT staffing (Body Shop), equipment maintenance, and technological infrastructure. The site was designed to convey credibility and professionalism, with clear service sections, customer testimonials, and results metrics. The responsive interface uses subtle scroll animations to engage users and highlight the company\'s differentials.',
 
         // Experience
         'experience.title': 'Recent',
