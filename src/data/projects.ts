@@ -6,16 +6,6 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
-    id: 'microscopia',
-    title: 'project.microscopia.title',
-    description: 'project.microscopia.description',
-    fullDescription: 'project.microscopia.fullDescription',
-    image: '/images/projects/microscopia.png',
-    liveUrl: 'https://microscopia-ufmg.vercel.app/',
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-    category: 'Institucional',
-  },
-  {
     id: 'audicenterbh',
     title: 'project.audicenterbh.title',
     description: 'project.audicenterbh.description',
@@ -35,4 +25,14 @@ export const projects: Project[] = [
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     category: 'Institucional',
   },
+  {
+    id: 'microscopia',
+    title: 'project.microscopia.title',
+    description: 'project.microscopia.description',
+    fullDescription: 'project.microscopia.fullDescription',
+    image: '/images/projects/microscopia.png',
+    liveUrl: 'https://microscopia-ufmg.vercel.app/',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
+    category: 'Institucional',
+  }
 ];
