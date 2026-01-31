@@ -42,6 +42,18 @@ export const translations: Translations = {
         'project.lanformation.description': 'Site institucional desenvolvido para empresa de serviços e soluções de TI de Belo Horizonte.',
         'project.lanformation.fullDescription': 'Desenvolvimento front-end do portal institucional da Lanformation, empresa especializada em locação de mão de obra de TI (Body Shop), manutenção de equipamentos e infraestrutura tecnológica. O site foi projetado para transmitir credibilidade e profissionalismo, com seções claras de serviços, depoimentos de clientes e métricas de resultados. A interface responsiva utiliza animações sutis de scroll para engajar o usuário e destacar os diferenciais da empresa.',
 
+        'project.clinical-simulator.title': 'Clinical Case Simulator',
+        'project.clinical-simulator.description': 'Simulador médico imersivo desenvolvido com Next.js 16 para treinamento de diagnóstico. Apresenta arquitetura robusta com testes automatizados (QA), Design System documentado e interface responsiva de alta fidelidade com suporte mobile otimizado.',
+        'project.clinical-simulator.fullDescription': 'Plataforma de simulação clínica projetada para preencher a lacuna entre teoria e prática médica. O sistema oferece uma experiência imersiva e responsiva (Mobile-First), permitindo análise de casos reais, interpretação de exames e tomada de decisões diagnósticas com feedback visual imediato. Destaques de Engenharia: Cultura de QA com cobertura de fluxos críticos (Jest + React Testing Library), UX/UI refinada com Tailwind CSS e unidades modernas (dvh), Design System documentado via Storybook para consistência visual, e segurança via Supabase com Row Level Security (RLS).',
+
+        'project.skyboard.title': 'Skyboard',
+        'project.skyboard.description': 'Desenvolvimento de uma SPA (Single Page Application) de gestão de tarefas estilo Kanban, focada em arquitetura limpa, Angular 19 e persistência em tempo real via Supabase.',
+        'project.skyboard.fullDescription': 'Projeto desenvolvido para demonstrar a construção de aplicações ricas e interativas utilizando o ecossistema moderno do Angular 19. O foco principal foi a engenharia de software e a experiência do usuário (UX), implementando uma interface Dark Mode refinada e responsiva. A arquitetura foi desenhada seguindo princípios de Clean Code e separação de responsabilidades (Service Layer Pattern), garantindo um código escalável e testável. O projeto integra persistência de dados em tempo real utilizando Supabase (PostgreSQL), funcionalidade de Drag-and-Drop fluida via Angular CDK e uma esteira de CI/CD automatizada com GitHub Actions para manutenção autônoma da infraestrutura.',
+
+        'project.portfolio.title': 'Portfolio Pessoal',
+        'project.portfolio.description': 'Portfolio profissional desenvolvido com Next.js 15 e React 19, apresentando arquitetura SCSS modular (BEM), animações fluidas com Framer Motion e design premium responsivo.',
+        'project.portfolio.fullDescription': 'Portfolio desenvolvido para demonstrar domínio técnico em engenharia front-end moderna. O projeto destaca-se pela arquitetura SCSS escalável utilizando metodologia BEM, sistema de internacionalização (i18n) para suporte multilíngue (PT/EN), animações de micro-interação com Framer Motion, e design responsivo premium com foco em acessibilidade e performance. A estrutura modular garante manutenibilidade e facilita a evolução contínua do projeto.',
+
         // Experience
         'experience.title': 'Experiência',
         'experience.titleAccent': 'Recente',
@@ -119,6 +131,18 @@ export const translations: Translations = {
         'project.lanformation.title': 'Lanformation',
         'project.lanformation.description': 'Institutional website developed for an IT services and solutions company in Belo Horizonte.',
         'project.lanformation.fullDescription': 'Front-end development of the Lanformation institutional portal, a company specializing in IT staffing (Body Shop), equipment maintenance, and technological infrastructure. The site was designed to convey credibility and professionalism, with clear service sections, customer testimonials, and results metrics. The responsive interface uses subtle scroll animations to engage users and highlight the company\'s differentials.',
+
+        'project.clinical-simulator.title': 'Clinical Case Simulator',
+        'project.clinical-simulator.description': 'Immersive medical simulator built with Next.js 16 for diagnostic training. Features robust architecture with automated testing (QA), documented Design System, and high-fidelity responsive interface with optimized mobile support.',
+        'project.clinical-simulator.fullDescription': 'Clinical simulation platform designed to bridge the gap between medical theory and practice. The system offers an immersive and responsive (Mobile-First) experience, enabling real case analysis, exam interpretation, and diagnostic decision-making with immediate visual feedback. Engineering Highlights: QA culture with critical flow coverage (Jest + React Testing Library), refined UX/UI with Tailwind CSS and modern units (dvh), Design System documented via Storybook for visual consistency, and security via Supabase with Row Level Security (RLS).',
+
+        'project.skyboard.title': 'Skyboard',
+        'project.skyboard.description': 'Development of a Kanban-style task management SPA (Single Page Application), focused on clean architecture, Angular 19 and real-time persistence via Supabase.',
+        'project.skyboard.fullDescription': 'Project developed to demonstrate building rich and interactive applications using the modern Angular 19 ecosystem. The main focus was software engineering and user experience (UX), implementing a refined and responsive Dark Mode interface. The architecture was designed following Clean Code principles and separation of concerns (Service Layer Pattern), ensuring scalable and testable code. The project integrates real-time data persistence using Supabase (PostgreSQL), fluid Drag-and-Drop functionality via Angular CDK, and an automated CI/CD pipeline with GitHub Actions for autonomous infrastructure maintenance.',
+
+        'project.portfolio.title': 'Personal Portfolio',
+        'project.portfolio.description': 'Professional portfolio built with Next.js 15 and React 19, featuring modular SCSS architecture (BEM), smooth animations with Framer Motion, and premium responsive design.',
+        'project.portfolio.fullDescription': 'Portfolio developed to demonstrate technical mastery in modern front-end engineering. The project stands out for its scalable SCSS architecture using BEM methodology, internationalization system (i18n) for multilingual support (PT/EN), micro-interaction animations with Framer Motion, and premium responsive design focused on accessibility and performance. The modular structure ensures maintainability and facilitates continuous project evolution.',
 
         // Experience
         'experience.title': 'Recent',

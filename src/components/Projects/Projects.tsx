@@ -9,6 +9,7 @@ import type { Project } from '@/types';
 export default function Projects() {
     const { translate } = useLanguage();
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
@@ -32,12 +33,45 @@ export default function Projects() {
 
     const openModal = (project: Project) => {
         setSelectedProject(project);
+        setCurrentImageIndex(0); // Reset carousel to first image
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setSelectedProject(null);
+        setCurrentImageIndex(0);
         document.body.style.overflow = '';
+    };
+
+    // Autoplay carousel (5 seconds interval)
+    useEffect(() => {
+        if (!selectedProject?.images || selectedProject.images.length <= 1) return;
+
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) =>
+                prev === selectedProject.images!.length - 1 ? 0 : prev + 1
+            );
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [selectedProject]);
+
+    const nextImage = () => {
+        if (!selectedProject?.images) return;
+        setCurrentImageIndex((prev) =>
+            prev === selectedProject.images!.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const prevImage = () => {
+        if (!selectedProject?.images) return;
+        setCurrentImageIndex((prev) =>
+            prev === 0 ? selectedProject.images!.length - 1 : prev - 1
+        );
+    };
+
+    const goToImage = (index: number) => {
+        setCurrentImageIndex(index);
     };
 
     useEffect(() => {
@@ -132,15 +166,64 @@ export default function Projects() {
                             </svg>
                         </button>
 
-                        {/* Left: Image */}
+                        {/* Left: Image or Carousel */}
                         <div className="modal__image-wrapper">
-                            <Image
-                                src={selectedProject.image}
-                                alt={selectedProject.title}
-                                fill
-                                sizes="500px"
-                                className="modal__image"
-                            />
+                            {selectedProject.images && selectedProject.images.length > 1 ? (
+                                // Carousel for multiple images
+                                <>
+                                    <Image
+                                        src={selectedProject.images[currentImageIndex]}
+                                        alt={`${selectedProject.title} - ${currentImageIndex + 1}`}
+                                        fill
+                                        sizes="500px"
+                                        className="modal__image"
+                                        priority
+                                    />
+
+                                    {/* Previous Arrow */}
+                                    <button
+                                        className="modal__carousel-arrow modal__carousel-arrow--prev"
+                                        onClick={prevImage}
+                                        aria-label="Imagem anterior"
+                                    >
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M15 18l-6-6 6-6" />
+                                        </svg>
+                                    </button>
+
+                                    {/* Next Arrow */}
+                                    <button
+                                        className="modal__carousel-arrow modal__carousel-arrow--next"
+                                        onClick={nextImage}
+                                        aria-label="Próxima imagem"
+                                    >
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </button>
+
+                                    {/* Dots Indicator */}
+                                    <div className="modal__carousel-dots">
+                                        {selectedProject.images.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                className={`modal__carousel-dot ${index === currentImageIndex ? 'modal__carousel-dot--active' : ''}`}
+                                                onClick={() => goToImage(index)}
+                                                aria-label={`Ir para imagem ${index + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            ) : (
+                                // Single image for projects without carousel
+                                <Image
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    fill
+                                    sizes="500px"
+                                    className="modal__image"
+                                />
+                            )}
                         </div>
 
                         {/* Right: Content + Footer */}

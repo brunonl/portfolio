@@ -107,6 +107,77 @@
         height: 100%;
         object-fit: contain;
         object-position: center;
+        transition: opacity 0.3s ease;
+    }
+
+    // Carousel Controls
+    &__carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba($color-bg-primary, 0.85);
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        color: $color-text-primary;
+        cursor: pointer;
+        transition: all $transition-base;
+        z-index: 5;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            background: rgba($color-bg-primary, 0.95);
+            border-color: $color-accent;
+            color: $color-accent;
+        }
+
+        &--prev {
+            left: $spacing-3;
+        }
+
+        &--next {
+            right: $spacing-3;
+        }
+    }
+
+    &__carousel-dots {
+        position: absolute;
+        bottom: $spacing-4;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: $spacing-2;
+        z-index: 5;
+    }
+
+    &__carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba($color-text-primary, 0.3);
+        border: none;
+        cursor: pointer;
+        transition: all $transition-base;
+        padding: 0;
+
+        &:hover {
+            background: rgba($color-text-primary, 0.5);
+            transform: scale(1.2);
+        }
+
+        &--active {
+            background: $color-accent;
+            width: 24px;
+            border-radius: 4px;
+        }
     }
 
     // Right side - Content wrapper

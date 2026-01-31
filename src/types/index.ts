@@ -11,6 +11,7 @@ export interface Project {
     description: string;
     fullDescription: string;
     image: string;
+    images?: string[]; // Multiple images for carousel (optional)
     liveUrl?: string;
     repoUrl?: string;
     stack: string[];
