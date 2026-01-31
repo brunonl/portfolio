@@ -5,12 +5,32 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { projects } from '@/data';
 import type { Project } from '@/types';
+import { useCarousel } from '@/hooks/useCarousel';
+import { useModal } from '@/hooks/useModal';
 
 export default function Projects() {
     const { translate } = useLanguage();
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    // Use Custom Hooks
+    const {
+        data: selectedProject,
+        isOpen: isModalOpen,
+        openModal,
+        closeModal
+    } = useModal<Project>();
+
+    const {
+        currentIndex: currentImageIndex,
+        nextSlide: nextImage,
+        prevSlide: prevImage,
+        goToSlide: goToImage,
+        handlers: swipeHandlers
+    } = useCarousel({
+        totalImages: selectedProject?.images?.length || 0,
+        enabled: isModalOpen,
+        autoplayInterval: 3000
+    });
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -29,57 +49,6 @@ export default function Projects() {
         });
 
         return () => observer.disconnect();
-    }, []);
-
-    const openModal = (project: Project) => {
-        setSelectedProject(project);
-        setCurrentImageIndex(0); // Reset carousel to first image
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeModal = () => {
-        setSelectedProject(null);
-        setCurrentImageIndex(0);
-        document.body.style.overflow = '';
-    };
-
-    // Autoplay carousel (5 seconds interval)
-    useEffect(() => {
-        if (!selectedProject?.images || selectedProject.images.length <= 1) return;
-
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prev) =>
-                prev === selectedProject.images!.length - 1 ? 0 : prev + 1
-            );
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, [selectedProject]);
-
-    const nextImage = () => {
-        if (!selectedProject?.images) return;
-        setCurrentImageIndex((prev) =>
-            prev === selectedProject.images!.length - 1 ? 0 : prev + 1
-        );
-    };
-
-    const prevImage = () => {
-        if (!selectedProject?.images) return;
-        setCurrentImageIndex((prev) =>
-            prev === 0 ? selectedProject.images!.length - 1 : prev - 1
-        );
-    };
-
-    const goToImage = (index: number) => {
-        setCurrentImageIndex(index);
-    };
-
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') closeModal();
-        };
-        window.addEventListener('keydown', handleEscape);
-        return () => window.removeEventListener('keydown', handleEscape);
     }, []);
 
     return (
@@ -116,9 +85,11 @@ export default function Projects() {
                                         src={project.image}
                                         alt={translate(project.title)}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="project-card__image"
+                                        quality={100}
                                     />
+
                                 </div>
 
                                 <div className="project-card__content">
@@ -147,7 +118,7 @@ export default function Projects() {
 
             {/* Project Modal - Side by Side Layout */}
             <div
-                className={`modal ${selectedProject ? 'modal--open' : ''}`}
+                className={`modal ${isModalOpen ? 'modal--open' : ''}`}
                 onClick={closeModal}
             >
                 <div className="modal__backdrop"></div>
@@ -175,9 +146,10 @@ export default function Projects() {
                                         src={selectedProject.images[currentImageIndex]}
                                         alt={`${selectedProject.title} - ${currentImageIndex + 1}`}
                                         fill
-                                        sizes="500px"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
                                         className="modal__image"
                                         priority
+                                        quality={100}
                                     />
 
                                     {/* Previous Arrow */}
@@ -202,6 +174,12 @@ export default function Projects() {
                                         </svg>
                                     </button>
 
+                                    {/* Swipe Area */}
+                                    <div
+                                        className="modal__swipe-area"
+                                        {...swipeHandlers}
+                                    />
+
                                     {/* Dots Indicator */}
                                     <div className="modal__carousel-dots">
                                         {selectedProject.images.map((_, index) => (
@@ -220,8 +198,9 @@ export default function Projects() {
                                     src={selectedProject.image}
                                     alt={selectedProject.title}
                                     fill
-                                    sizes="500px"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
                                     className="modal__image"
+                                    quality={100}
                                 />
                             )}
                         </div>

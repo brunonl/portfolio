@@ -79,7 +79,7 @@ export function useTypewriter({ text, speed = 50, delay = 0 }: UseTypewriterOpti
             timeout = setTimeout(() => {
                 setDisplayedText(text.slice(0, displayedText.length + 1));
             }, speed);
-        } else {
+        } else if (!isComplete) {
             setIsComplete(true);
         }
 
