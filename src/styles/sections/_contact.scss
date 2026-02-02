@@ -46,13 +46,15 @@
     }
 
     &__grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: $spacing-4; // Optimized mobile spacing
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-4;
+        justify-items: center;
 
         @include media-breakpoint-up(md) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: $spacing-8;
         }
     }
@@ -68,13 +70,13 @@
         border-radius: $radius-md;
         background: rgba($color-bg-card, 0.3);
 
-        // Fixed sizing for uniformity - same size for all items
-        flex: 1;
-        min-width: 100px;
-        max-width: 130px;
+        // Fixed sizing for uniformity
+        width: 100%;
+        max-width: 100%;
         justify-content: center;
 
         @include media-breakpoint-up(md) {
+            flex: 1;
             min-width: 180px;
             max-width: 220px;
             padding: $spacing-6;

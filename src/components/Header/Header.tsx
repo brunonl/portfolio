@@ -121,13 +121,19 @@ export default function Header() {
                 <div className="header__mobile-lang">
                     <button
                         className={`header__lang ${language === 'pt' ? 'header__lang--active' : ''}`}
-                        onClick={() => setLanguage('pt')}
+                        onClick={() => {
+                            setLanguage('pt');
+                            setIsMobileMenuOpen(false);
+                        }}
                     >
                         Português
                     </button>
                     <button
                         className={`header__lang ${language === 'en' ? 'header__lang--active' : ''}`}
-                        onClick={() => setLanguage('en')}
+                        onClick={() => {
+                            setLanguage('en');
+                            setIsMobileMenuOpen(false);
+                        }}
                     >
                         English
                     </button>
@@ -137,6 +143,7 @@ export default function Header() {
                     href="/cv_bruno_meireles.pdf"
                     download
                     className="btn btn-primary header__mobile-cta"
+                    onClick={() => setIsMobileMenuOpen(false)}
                 >
                     {translate('header.downloadCv')}
                 </a>
