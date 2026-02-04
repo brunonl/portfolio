@@ -17,12 +17,12 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://brunomeireles.vercel.app"),
-  title: "Bruno Meireles | Senior Frontend Engineer",
-  description: "Portfólio de Bruno Meireles, Senior Frontend Engineer com mais de 10 anos de experiência em React, Next.js e TypeScript.",
+  title: "Bruno Meireles | Portfolio",
+  description: "Explore meu portfólio",
   keywords: ["Frontend", "Software Engineer", "React", "Next.js", "TypeScript", "Developer", "Portfolio"],
   openGraph: {
     title: "Bruno Meireles | Portfolio",
-    description: "Explore meu portfólio com projetos em React, Next.js e TypeScript.",
+    description: "Explore meu portfólio",
     url: "https://brunomeireles.vercel.app",
     siteName: "Bruno Meireles",
     images: [
@@ -37,10 +37,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Bruno Meireles | Portfolio",
-    description: "Explore meu portfólio com projetos em React, Next.js e TypeScript.",
-    images: ["/images/projects/audicenterbh/audicenterbh.png"],
+    card: "summary",
   },
 };
 
