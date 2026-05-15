@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CV_URL } from '@/constants';
 
 export default function About() {
     const { translate } = useLanguage();
@@ -42,7 +43,7 @@ export default function About() {
 
                     <div className="about__actions">
                         <a
-                            href="/cv_bruno_meireles.pdf"
+                            href={CV_URL}
                             download
                             className="btn btn-primary"
                         >

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CV_URL } from '@/constants';
 
 const navLinks = [
     { href: '#hero', key: 'nav.home' },
@@ -85,7 +86,7 @@ export default function Header() {
                     </div>
 
                     <a
-                        href="/cv_bruno_meireles_2026.pdf"
+                        href={CV_URL}
                         download
                         className="btn btn-primary header__cta"
                     >
@@ -140,7 +141,7 @@ export default function Header() {
                 </div>
 
                 <a
-                    href="/cv_bruno_meireles.pdf"
+                    href={CV_URL}
                     download
                     className="btn btn-primary header__mobile-cta"
                     onClick={() => setIsMobileMenuOpen(false)}
