@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://brunomeireles.vercel.app"),
   title: "Bruno Meireles | Portfolio",
   description: "Explore meu portfólio",
-  keywords: ["Frontend", "Software Engineer", "React", "Next.js", "TypeScript", "Developer", "Portfolio"],
+  keywords: ["Front-end", "Desenvolvedor Frontend", "Frontend Developer", "React", "Next.js", "TypeScript", "Developer", "Portfolio"],
   openGraph: {
     title: "Bruno Meireles | Portfolio",
     description: "Explore meu portfólio",

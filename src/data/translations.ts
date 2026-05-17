@@ -16,7 +16,7 @@ export const translations: Translations = {
 
         // Hero
         'hero.greeting': 'Olá, eu sou',
-        'hero.label': 'Senior Frontend Engineer',
+        'hero.label': 'Desenvolvedor Frontend',
         'hero.description': '+10 anos criando experiências digitais de impacto, com atuação em diversas stacks e tecnologias.',
         'hero.viewProjects': 'Ver Projetos',
 
@@ -61,13 +61,13 @@ export const translations: Translations = {
         'experience.linkedinCta': 'Veja minha trajetória completa no meu',
 
         // Experience Data
-        'experience.bhs-senior.role': 'Senior Frontend Developer',
+        'experience.bhs-senior.role': 'Desenvolvedor Frontend Sênior',
         'experience.bhs-senior.description': 'Liderança técnica no projeto Cemig SIM (App React Native + Web Next.js). Implementação de testes E2E com Cypress, CI/CD com GitHub Actions, e mentoria de desenvolvedores.',
 
-        'experience.bhs-middle.role': 'Middle Frontend Developer',
+        'experience.bhs-middle.role': 'Desenvolvedor Frontend Pleno',
         'experience.bhs-middle.description': 'Refatoração de sistemas legados com Angular. Atuação híbrida como Dev + UI/UX Designer, criando protótipos e melhorando usabilidade.',
 
-        'experience.alpes.role': 'Frontend Developer',
+        'experience.alpes.role': 'Desenvolvedor Frontend',
         'experience.alpes.description': 'Responsável técnico pelo setor de Frontend. Liderança de equipe com mentoria de estagiário. Sites de alta performance para Audi Center BH, Strada Jeep e Fiat.',
 
         // About
@@ -106,7 +106,7 @@ export const translations: Translations = {
 
         // Hero
         'hero.greeting': 'Hi, I am',
-        'hero.label': 'Senior Frontend Engineer',
+        'hero.label': 'Frontend Developer',
         'hero.description': '+10 years build impactful digital experiences, working with various stacks and technologies.',
         'hero.viewProjects': 'View Projects',
 
