@@ -15,7 +15,7 @@ export const SOCIAL_LINKS = {
 /**
  * CV download URL
  */
-export const CV_URL = '/cv_bruno_meireles_2026.pdf';
+export const CV_URL = '/Bruno_Meireles_Desenvolvedor_React_Senior.pdf';
 
 /**
  * Animation durations (in ms)
