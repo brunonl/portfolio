@@ -198,6 +198,12 @@
         width: 100%;
         min-height: 44px;
 
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+        }
+
         svg {
             width: 14px;
             height: 14px;

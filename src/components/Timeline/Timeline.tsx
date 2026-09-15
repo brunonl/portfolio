@@ -53,7 +53,13 @@ export default function Timeline() {
                             <span className="timeline__period">{exp.period}</span>
                             <h3 className="timeline__role">{translate(exp.role)}</h3>
                             <p className="timeline__company">
-                                @ <a href="#" target="_blank" rel="noopener noreferrer">{exp.company}</a>
+                                @ {exp.companyUrl ? (
+                                    <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer">
+                                        {exp.company}
+                                    </a>
+                                ) : (
+                                    <span>{exp.company}</span>
+                                )}
                             </p>
                             <p className="timeline__description">{translate(exp.description)}</p>
                         </div>

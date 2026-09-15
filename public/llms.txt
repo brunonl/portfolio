@@ -1,0 +1,22 @@
+# Bruno Meireles
+
+> Portfólio profissional de Bruno Meireles, desenvolvedor frontend com mais de 10 anos de experiência criando experiências digitais.
+
+Este arquivo é um recurso complementar de descoberta para agentes e modelos de linguagem. Ele não substitui robots.txt, sitemap.xml ou práticas tradicionais de SEO.
+
+## Áreas de atuação
+
+- Desenvolvimento Frontend
+- React
+- Next.js
+- TypeScript
+- Angular
+- React Native
+
+## Links principais
+
+- [Portfólio](https://brunomeireles.vercel.app/)
+- [Projetos](https://brunomeireles.vercel.app/#projects)
+- [Experiência](https://brunomeireles.vercel.app/#experience)
+- [Sobre](https://brunomeireles.vercel.app/#about)
+- [Contato](https://brunomeireles.vercel.app/#contact)

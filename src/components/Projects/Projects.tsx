@@ -10,7 +10,7 @@ import { useModal } from '@/hooks/useModal';
 
 export default function Projects() {
     const { translate } = useLanguage();
-    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+    const cardsRef = useRef<(HTMLElement | null)[]>([]);
 
     // Use Custom Hooks
     const {
@@ -71,19 +71,11 @@ export default function Projects() {
 
                     <div className="projects__grid">
                         {projects.map((project, index) => (
-                            <div
+                            <article
                                 key={project.id}
                                 ref={(el) => { cardsRef.current[index] = el; }}
                                 className="project-card"
                                 style={{ animationDelay: `${index * 0.1}s` }}
-                                onClick={() => handleOpenProject(project)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter' || e.key === ' ') {
-                                        handleOpenProject(project);
-                                    }
-                                }}
                             >
                                 <div className="project-card__image-wrapper">
                                     <Image
@@ -108,14 +100,17 @@ export default function Projects() {
                                         ))}
                                     </div>
 
-                                    <button className="btn btn-primary-outline project-card__details-btn">
+                                    <button
+                                        className="btn btn-primary-outline project-card__details-btn"
+                                        onClick={() => handleOpenProject(project)}
+                                    >
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <path d="M5 12h14M12 5l7 7-7 7" />
                                         </svg>
                                         {translate('projects.viewDetails')}
                                     </button>
                                 </div>
-                            </div>
+                            </article>
                         ))}
                     </div>
                 </div>
@@ -131,6 +126,9 @@ export default function Projects() {
                     <div
                         className="modal__content"
                         onClick={(e) => e.stopPropagation()}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby={`project-modal-title-${selectedProject.id}`}
                     >
                         <button
                             className="modal__close"
@@ -214,7 +212,12 @@ export default function Projects() {
                         <div className="modal__right">
                             <div className="modal__body">
                                 <span className="modal__category">{selectedProject.category}</span>
-                                <h3 className="modal__title">{translate(selectedProject.title)}</h3>
+                                <h3
+                                    className="modal__title"
+                                    id={`project-modal-title-${selectedProject.id}`}
+                                >
+                                    {translate(selectedProject.title)}
+                                </h3>
                                 <p className="modal__description">{translate(selectedProject.fullDescription)}</p>
 
                                 <div className="modal__stack">

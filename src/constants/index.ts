@@ -3,6 +3,11 @@
 // ============================================
 
 /**
+ * Canonical production URL
+ */
+export const SITE_URL = 'https://brunomeireles.vercel.app';
+
+/**
  * Social media and contact links
  */
 export const SOCIAL_LINKS = {
