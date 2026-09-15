@@ -80,11 +80,6 @@ export function useCarousel({
         }
     };
 
-    // Reset index if totalImages changes (e.g., modal closed/opened with diff project)
-    useEffect(() => {
-        setCurrentIndex(0);
-    }, [totalImages]);
-
     return {
         currentIndex,
         nextSlide,

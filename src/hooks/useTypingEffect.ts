@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 interface UseTypingEffectOptions {
     texts: string[];
@@ -18,9 +18,8 @@ export function useTypingEffect({
     const [displayedText, setDisplayedText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true);
-    const [isComplete, setIsComplete] = useState(false);
-
     const currentText = texts[currentIndex];
+    const isComplete = isTyping && displayedText.length === currentText.length;
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
@@ -31,20 +30,21 @@ export function useTypingEffect({
                     setDisplayedText(currentText.slice(0, displayedText.length + 1));
                 }, typingSpeed);
             } else {
-                setIsComplete(true);
                 timeout = setTimeout(() => {
                     setIsTyping(false);
-                    setIsComplete(false);
                 }, pauseDuration);
             }
         } else {
             if (displayedText.length > 0) {
                 timeout = setTimeout(() => {
-                    setDisplayedText(displayedText.slice(0, -1));
+                    const nextText = displayedText.slice(0, -1);
+                    setDisplayedText(nextText);
+
+                    if (nextText.length === 0) {
+                        setCurrentIndex((prev) => (prev + 1) % texts.length);
+                        setIsTyping(true);
+                    }
                 }, deletingSpeed);
-            } else {
-                setCurrentIndex((prev) => (prev + 1) % texts.length);
-                setIsTyping(true);
             }
         }
 
@@ -62,8 +62,8 @@ interface UseTypewriterOptions {
 
 export function useTypewriter({ text, speed = 50, delay = 0 }: UseTypewriterOptions) {
     const [displayedText, setDisplayedText] = useState('');
-    const [isComplete, setIsComplete] = useState(false);
     const [hasStarted, setHasStarted] = useState(false);
+    const isComplete = hasStarted && displayedText.length === text.length;
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
@@ -79,8 +79,6 @@ export function useTypewriter({ text, speed = 50, delay = 0 }: UseTypewriterOpti
             timeout = setTimeout(() => {
                 setDisplayedText(text.slice(0, displayedText.length + 1));
             }, speed);
-        } else if (!isComplete) {
-            setIsComplete(true);
         }
 
         return () => clearTimeout(timeout);

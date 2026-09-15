@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from 'react';
+import { useEffect, useRef, useState, RefObject } from 'react';
 import { ANIMATION } from '@/constants';
 
 // ============================================
@@ -23,7 +23,7 @@ export function useScrollReveal<T extends HTMLElement>(
     isVisible: boolean;
 } {
     const ref = useRef<T | null>(null);
-    const isVisibleRef = useRef(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const element = ref.current;
@@ -39,14 +39,14 @@ export function useScrollReveal<T extends HTMLElement>(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        isVisibleRef.current = true;
+                        setIsVisible(true);
                         entry.target.classList.add('is-visible');
 
                         if (triggerOnce) {
                             observer.unobserve(entry.target);
                         }
                     } else if (!triggerOnce) {
-                        isVisibleRef.current = false;
+                        setIsVisible(false);
                         entry.target.classList.remove('is-visible');
                     }
                 });
@@ -59,5 +59,5 @@ export function useScrollReveal<T extends HTMLElement>(
         return () => observer.disconnect();
     }, [options]);
 
-    return { ref, isVisible: isVisibleRef.current };
+    return { ref, isVisible };
 }

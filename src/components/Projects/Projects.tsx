@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { projects } from '@/data';
@@ -31,6 +31,11 @@ export default function Projects() {
         enabled: isModalOpen,
         autoplayInterval: 3000
     });
+
+    const handleOpenProject = (project: Project) => {
+        goToImage(0);
+        openModal(project);
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -71,12 +76,12 @@ export default function Projects() {
                                 ref={(el) => { cardsRef.current[index] = el; }}
                                 className="project-card"
                                 style={{ animationDelay: `${index * 0.1}s` }}
-                                onClick={() => openModal(project)}
+                                onClick={() => handleOpenProject(project)}
                                 role="button"
                                 tabIndex={0}
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter' || e.key === ' ') {
-                                        openModal(project);
+                                        handleOpenProject(project);
                                     }
                                 }}
                             >
